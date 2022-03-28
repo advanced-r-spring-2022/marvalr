@@ -26,8 +26,17 @@ marvel_api_key <- function(key, overwrite = FALSE, create = FALSE) {
 #' 
 #' @noRd # make this internal function
 
-marvel_api <- function(path) {
-  url <- modify_url("https://gateway.marvel.com/", path = path)
+marvel_api <- function(path, public_key, private_key) {
+  
+  # stop if no key
+  if (is.null(public_key) | is.null(private_key)){
+    stop("Please provide public AND private API keys to access the Marvel API.")
+  }
+  
+  url <- modify_url("https://gateway.marvel.com/", path = path, 
+                    query = list(apikey = public_key, 
+                                 ts = Sys.time(), 
+                                 hash = digest::digest(paste(ts, private_key, public_key), algo = "md5")))
   GET(url)
 }
 
