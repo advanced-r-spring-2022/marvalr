@@ -10,7 +10,6 @@
 #' 
 #' @author Bethany Leap
 #' 
-#' @noRd # make this internal function
 
 marvel_api <- function(path, public_key, private_key) {
   
