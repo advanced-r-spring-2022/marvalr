@@ -4,8 +4,11 @@
 #' 
 #' @param path the end point
 #' 
-#' @author Bethany Leap
+#' @param public_key the user's public API key
 #' 
+#' @param private_key the user's private API key
+#' 
+#' @author Bethany Leap
 #' 
 #' @noRd # make this internal function
 
