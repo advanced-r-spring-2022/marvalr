@@ -1,3 +1,21 @@
+#' @title Fetches a dataframe of Marvel characters from the Marvel API.
+#' 
+#' @description Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series, or other arguments such as what the character's name starts with or how many results to offset by. 
+#' 
+#' @param limit An integer. Limit the result set to the specified number of resources (max 100).
+#' @param offset An integer. Skip the specified number of resources in the result set.
+#' @param nameStartsWith A character. Return characters with names that begin with the specified string (e.g. Sp).
+#' @param comicID An integer. The comic ID (e.g., 101094).
+#' @param eventID An integer. The event ID (e.g., 305).
+#' @param seriesID An integer. The series ID (e.g., 25990).
+#' @param storyID An integer. The story ID (e.g., 223124).
+#' 
+#' @return A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
+#' 
+#' @author Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
+#' 
+#' @examples
+
 get_characters <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comicID = NULL, # default comicID should be NULL
