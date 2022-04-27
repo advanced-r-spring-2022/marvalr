@@ -5,10 +5,10 @@
 #' @param limit An integer. Limit the result set to the specified number of resources (max 100).
 #' @param offset An integer. Skip the specified number of resources in the result set.
 #' @param nameStartsWith A character. Return characters with names that begin with the specified string (e.g. Sp).
-#' @param comicID An integer. The comic ID (e.g., 101094).
-#' @param eventID An integer. The event ID (e.g., 305).
-#' @param seriesID An integer. The series ID (e.g., 25990).
-#' @param storyID An integer. The story ID (e.g., 223124).
+#' @param comic An integer. The comic ID (e.g., 101094).
+#' @param event An integer. The event ID (e.g., 305).
+#' @param series An integer. The series ID (e.g., 25990).
+#' @param story An integer. The story ID (e.g., 223124).
 #' 
 #' @return A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
 #' 
@@ -18,26 +18,41 @@
 
 get_characters <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
-                           comicID = NULL, # default comicID should be NULL
-                           eventID = NULL, # default eventID should be NULL
-                           seriesID = NULL, # default seriesID should be NULL
-                           storyID = NULL) { # default storyID should be NULL
+                           comic = NULL, # default comicID should be NULL
+                           event = NULL, # default eventID should be NULL
+                           series = NULL, # default seriesID should be NULL
+                           story = NULL) { # default storyID should be NULL
   
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
   # so number of nulls should be 3 (if 1 entered) or 4 (if none entered)
-  stopifnot(sum(is.null(comicID),
-                is.null(eventID),
-                is.null(seriesID),
-                is.null(storyID)) >= 3)
+
+  if(sum(is.null(comic),
+         is.null(event),
+         is.null(series),
+         is.null(story)) <3) {
+    stop("Please choose to enter an argument for only one of comic, event, series, or story.")
+  }
   
-  # should be a whole number if entered
-  stopifnot((is.null(comicID)) | (is.numeric(comicID) & comicID %% 1 == 0))
-  stopifnot((is.null(eventID)) | (is.numeric(eventID) & eventID %% 1 == 0))
-  stopifnot((is.null(seriesID)) | (is.numeric(seriesID) & seriesID %% 1 == 0))
-  stopifnot((is.null(storyID)) | (is.numeric(storyID) & storyID %% 1 == 0))
+  # entries for arguments should be characters/strings
+  
+  if(!is.null(comic) & !is.character(comic)) {
+    stop("Comic must be entered as string/characters. Ex. \"Carnage #2\"")
+  }
+  
+  if(!is.null(event) & !is.character(event)) {
+    stop("Comic must be entered as string/characters. Ex. \"Civil War\"")
+  }
+  
+  if(!is.null(series) & !is.character(series)) {
+    stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
+  }
+  
+  if(!is.null(story) & !is.character(story)) {
+    stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
+  }
   
   # timestamp, hash, and url
   ts <- round(as.numeric(Sys.time())*1000) 
