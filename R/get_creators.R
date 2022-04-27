@@ -2,12 +2,12 @@
 #' 
 #' @description Get tibble containing information related to creators through the Marvel API based on user input criteria.
 #' 
-#' @param limit The requested result limit defaulted to 100
-#' @param offset The requested number of skipped results of the call.
-#' @param comic A Marvel comic issue, collection, graphic novel, or digital comic
-#' @param event A big, universe-changing storyline
-#' @param series Sequentially numbered list of comics with the same title and volume
-#' @param story Indivisible components of comics
+#' @param limit An integer. Limit the result set to the specified number of resources (defaulted to 100).
+#' @param offset An integer. Skip the specified number of resources in the result set.
+#' @param comic A character vector. A Marvel comic issue, collection, graphic novel, or digital comic
+#' @param event A character vector. A big, universe-changing storyline
+#' @param series A character vector. Sequentially numbered list of comics with the same title and volume
+#' @param story A character vector. Indivisible components of comics
 #' 
 #' 
 #' 
