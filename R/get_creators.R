@@ -18,17 +18,18 @@
 #' @examples 
 #' get_creators(limit = 50,
 #'                 offset = 0,
-#'                 comic = TRUE,
-#'                 install = TRUE)
-#' 
+#'                 series = "Eternals")
+#'                 
+#'                 
+#'get_creators(event = "Civil War") 
 .
 
 get_creators <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
-                           comicID = NULL, # default comicID should be NULL
-                           eventID = NULL, # default eventID should be NULL
-                           seriesID = NULL, # default seriesID should be NULL
-                           storyID = NULL) { # default storyID should be NULL
+                           comic = NULL, # default comicID should be NULL
+                           event = NULL, # default eventID should be NULL
+                           series = NULL, # default seriesID should be NULL
+                           story = NULL) { # default storyID should be NULL
   
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
@@ -36,26 +37,32 @@ get_creators <- function(limit = 100, # default limit should be 100
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
   # so number of nulls should be 3 (if 1 entered) or 4 (if none entered)
   
-  if(sum(is.null(comicID),
-         is.null(eventID),
-         is.null(seriesID),
-         is.null(storyID)) <3) {
+  if(sum(is.null(comic),
+         is.null(event),
+         is.null(series),
+         is.null(story)) <3) {
     stop("Please choose to enter an argument for only one of comic, event, series, or story.")
   }
   
-  # should be a whole number if entered
+  # entries for arguments should be characters/strings
   
-  if(sum(is.null(comicID),
-         is.null(eventID),
-         is.null(seriesID),
-         is.null(storyID)) <3) {
-    stop("Please choose to enter an argument for only one of comic, event, series, or story.")
+  if(!is.null(comic) & !is.character(comic)) {
+    stop("Comic must be entered as string/characters. Ex. \"Carnage #2\"")
   }
   
-  stopifnot((is.null(comicID)) | (is.numeric(comicID) & comicID %% 1 == 0))
-  stopifnot((is.null(eventID)) | (is.numeric(eventID) & eventID %% 1 == 0))
-  stopifnot((is.null(seriesID)) | (is.numeric(seriesID) & seriesID %% 1 == 0))
-  stopifnot((is.null(storyID)) | (is.numeric(storyID) & storyID %% 1 == 0))
+  if(!is.null(event) & !is.character(event)) {
+    stop("Comic must be entered as string/characters. Ex. \"Civil War\"")
+  }
+  
+  if(!is.null(series) & !is.character(series)) {
+    stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
+  }
+  
+  if(!is.null(story) & !is.character(story)) {
+    stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
+  }
+    
+  
   
   # timestamp, hash, and url
   ts <- round(as.numeric(Sys.time())*1000) 
