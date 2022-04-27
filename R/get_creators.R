@@ -22,7 +22,7 @@
 #'                 
 #'                 
 #'get_creators(event = "Civil War") 
-.
+
 
 get_creators <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by

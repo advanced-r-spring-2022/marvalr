@@ -2,13 +2,41 @@
 % Please edit documentation in R/get_creators.R
 \name{get_creators}
 \alias{get_creators}
-\title{Get the Marvel creators}
+\title{Get tibble of creators information from Marvel API}
 \usage{
-get_creators(public_key = NULL, private_key = NULL, name = NULL)
+get_creators(
+  limit = 100,
+  offset = 0,
+  comic = NULL,
+  event = NULL,
+  series = NULL,
+  story = NULL
+)
 }
 \arguments{
-\item{key}{A string containing your}
+\item{limit}{An integer. Limit the result set to the specified number of resources (defaulted to 100).}
+
+\item{offset}{An integer. Skip the specified number of resources in the result set.}
+
+\item{comic}{A character vector. A Marvel comic issue, collection, graphic novel, or digital comic}
+
+\item{event}{A character vector. A big, universe-changing storyline}
+
+\item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
+
+\item{story}{A character vector. Indivisible components of comics}
 }
 \description{
-This function accesses the Marvel API, gets the list of creators, and returns them in a tidy dataframe. Alternatively, give a string name and return all information about that creator in a tidy format.
+Get tibble containing information related to creators through the Marvel API based on user input criteria.
+}
+\examples{
+get_creators(limit = 50,
+                offset = 0,
+                series = "Eternals")
+                
+                
+get_creators(event = "Civil War") 
+}
+\author{
+Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
 }
