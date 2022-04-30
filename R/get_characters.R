@@ -15,6 +15,8 @@
 #' @author Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
 #' 
 #' @examples
+#' 
+
 
 get_characters <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
@@ -52,6 +54,16 @@ get_characters <- function(limit = 100, # default limit should be 100
   
   if(!is.null(story) & !is.character(story)) {
     stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
+  }
+  
+  # get ids from character/string entries
+  # filter to be the row where title == user entry, select the id column
+  if(!is.null(comic)) { # if comic isnt NULL
+    comicID <- comics_id[comics_id$title == comic, "id"] 
+  } else if(!is.null(event)) {
+    eventID <- events_id[events_id$title == event, "id"]
+  } else if(!is.null(series)) {
+    seriesID <- series_id[series_id$title == series, "id"]
   }
   
   # timestamp, hash, and url
