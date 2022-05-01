@@ -31,6 +31,8 @@ get_creators <- function(limit = 100, # default limit should be 100
                            series = NULL, # default seriesID should be NULL
                            story = NULL) { # default storyID should be NULL
   
+  
+  
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
@@ -74,15 +76,27 @@ get_creators <- function(limit = 100, # default limit should be 100
   
   base_url <- "https://gateway.marvel.com/v1/public/" # base url
   
-  if (!is.null(comicID)) { # if user enters comicID
+  if (!is.null(comic)) { # if user enters comicID
+    comicID = comics_id$id[comics_id$title == comic]
     creators_base_url <- paste0(base_url, "comics/", comicID, "/creators")
-  } else if (!is.null(eventID)) { # if user enters eventID
-    characters_base_url <- paste0(base_url, "events/", eventID, "/creators")
-  } else if (!is.null(seriesID)) { # if user enters seriesID
-    characters_base_url <- paste0(base_url, "series/", seriesID, "/creators")
-  } else if (!is.null(storyID)) { # if user enters storyID
+    
+  } else if (!is.null(event)) { # if user enters eventID
+    
+    eventID = events_id$id[events_id$title == event]
+    creators_base_url <- paste0(base_url, "events/", eventID, "/creators")
+    
+  } else if (!is.null(series)) { # if user enters seriesID
+    
+    seriesID = series_id$id[series_id$title == series]
+    creators_base_url  <- paste0(base_url, "series/", seriesID, "/creators")
+    
+  } else if (!is.null(story)) { # if user enters storyID
+    
+    storyID = stories_id$id[stories_id$tile == story]
     characters_base_url <- paste0(base_url, "stories/", storyID, "/creators")
+    
   } else { # if user doesnt enter any ids
+    
     creators_base_url <- paste0(base_url, "creators")
   }
   
