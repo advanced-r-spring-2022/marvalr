@@ -24,7 +24,7 @@
 #'get_comics(event = "Civil War") 
 
 
-get_creators <- function(limit = 100, # default limit should be 100
+get_comics <- function(limit = 100, # default limit should be 100
                          offset = 0, # how many results to offset by
                          creator = NULL, # default comicID should be NULL
                          event = NULL, # default eventID should be NULL
