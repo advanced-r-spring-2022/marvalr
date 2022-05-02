@@ -6,7 +6,7 @@
 #' @param offset An integer. Skip the specified number of resources in the result set.
 #' @param comic A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.
 #' @param creator A character vector. A person or entity that makes comics.
-#' @param events A character vector. A big, universe-changing storyline
+#' @param events A character vector. A big, universe-changing story line.
 #' @param character A character vector. Full name of the Marvel character.
 #' @param story A character vector. Indivisible components of comics.
 #' 
@@ -18,6 +18,15 @@
 #' 
 #' @examples 
 #' get_series()
+#' 
+#' get_series(creator = "Aaron Alexovich")
+#' 
+#' get_series(events = "Age of Ultron")
+#' 
+#' get_series(character = "Vision")
+#' 
+#' get_series(story = "169")
+#' 
 
 
 
