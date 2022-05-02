@@ -22,6 +22,8 @@
 #' get_events(creator = "Brian Michael Bendis")
 #' 
 #' get_events(character = "Black Widow")
+#' 
+#' get_events(story = "103328")
 
 
 
