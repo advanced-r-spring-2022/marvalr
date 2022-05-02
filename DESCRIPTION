@@ -6,7 +6,7 @@ Authors@R:
       person("Dashiell", "Nusbaum", "first.last@example.com", role = c("aut", "cre")),
       person("Ian", "Davis", "first.last@example.com", role = c("aut", "cre")),
       person("Daniel", "Bernal", "db4767a@student.american.edu", role = c("aut", "cre")))
-Description: The marvalr package comprises a collection of tools to interact and extract structured data from the Marvel API. It provides a variety of options to obtain data for comics, comic series, comic stories, comic events and crossovers, creators, and characters.
+Description: The marvalr package comprises a collection of tools to interact and extract structured data from the Marvel API. It provides a variety of options to obtain data about comics, comic series, comic stories, comic events and crossovers, creators, and characters.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
