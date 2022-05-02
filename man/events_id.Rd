@@ -5,7 +5,12 @@
 \alias{events_id}
 \title{Find unique ID for all important events in the Marvel Universe.}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 74 rows and 3 columns.
+A \code{data.frame} with 74 observations and 3 columns:
+\describe{
+\item{id}{The unique identifier associated with each event}
+\item{title}{The title of the important event}
+\item{description}{}
+}
 }
 \usage{
 events_id
