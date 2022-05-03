@@ -7,7 +7,7 @@
 #' @param comic A character vector. A Marvel comic issue, collection, graphic novel, or digital comic
 #' @param event A character vector. A big, universe-changing storyline
 #' @param series A character vector. Sequentially numbered list of comics with the same title and volume
-#' @param story A character vector. Indivisible components of comics
+#' 
 #' 
 #' 
 #' 
