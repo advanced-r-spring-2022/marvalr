@@ -4,7 +4,6 @@
 #' 
 #' @param limit An integer. Limit the result set to the specified number of resources (max 100).
 #' @param offset An integer. Skip the specified number of resources in the result set.
-#' @param nameStartsWith A character. Return characters with names that begin with the specified string (e.g. Sp).
 #' @param comic A character vector. A Marvel comic issue, collection, graphic novel, or digital comic
 #' @param event A character vector. A big, universe-changing storyline
 #' @param series A character vector. Sequentially numbered list of comics with the same title and volume
@@ -13,7 +12,13 @@
 #' 
 #' @author Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
 #' 
+#' @export get_characters
+#' 
 #' @examples
+#' 
+#' get_characters(limit = 5)
+#' 
+#' get_characters(event = "Civil War")
 #' 
 
 

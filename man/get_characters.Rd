@@ -22,8 +22,6 @@ get_characters(
 \item{event}{A character vector. A big, universe-changing storyline}
 
 \item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
-
-\item{nameStartsWith}{A character. Return characters with names that begin with the specified string (e.g. Sp).}
 }
 \value{
 A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
@@ -32,6 +30,10 @@ A dataframe of up to 100 characters containing their ID, name, description, time
 Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series, or other arguments such as what the character's name starts with or how many results to offset by.
 }
 \examples{
+
+get_characters(limit = 5)
+
+get_characters(event = "Civil War")
 
 }
 \author{
