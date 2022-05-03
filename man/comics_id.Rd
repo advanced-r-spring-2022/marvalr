@@ -5,12 +5,21 @@
 \alias{comics_id}
 \title{Get unique ID for all Marvel Comics.}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 49361 rows and 2 columns.
+a \code{tibble} containing 49,361 observations of 2 columns:
+\describe{
+\item{id}{A numeric vector containing the unique identifier associated with
+each comic}
+\item{title}{A character vector containing the title of each Marvel comic}
+}
+}
+\source{
+Data provided by Marvel. Copyright 2014 Marvel.
 }
 \usage{
 comics_id
 }
 \description{
-Get unique ID for all Marvel Comics.
+Contains the unique ID and title of all comics which can be
+accessed using the Marvel API.
 }
 \keyword{datasets}

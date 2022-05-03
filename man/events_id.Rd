@@ -5,17 +5,23 @@
 \alias{events_id}
 \title{Find unique ID for all important events in the Marvel Universe.}
 \format{
-A \code{data.frame} with 74 observations and 3 columns:
+A \code{tibble} with 74 observations and 3 columns:
 \describe{
-\item{id}{The unique identifier associated with each event}
-\item{title}{The title of the important event}
-\item{description}{}
+\item{id}{A numeric vector containing the unique identifier associated with
+each event}
+\item{title}{A character vector indicating the title of the important event}
+\item{description}{A character vector containing a detailed description of
+each event}
 }
+}
+\source{
+Data provided by Marvel. Copyright 2014 Marvel.
 }
 \usage{
 events_id
 }
 \description{
-Find unique ID for all important events in the Marvel Universe.
+Contains the id, title, and description for every event which
+can be called using the Marvel API.
 }
 \keyword{datasets}
