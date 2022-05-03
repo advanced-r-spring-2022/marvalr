@@ -54,7 +54,7 @@ get_series <- function(limit = 100, # default limit should be 100
   # entries for arguments should be characters/strings
   
   if(!is.null(comic) & !is.character(comic)) {
-    stop("Comic must be entered as string/characters. Ex. \"Age of Ultron (2013) #1\"")
+    stop("Comic must be entered as string/characters. Ex. \"Carnage #2\"")
   }
   
   if(!is.null(creator) & !is.character(creator)) {

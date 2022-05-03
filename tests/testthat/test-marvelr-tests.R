@@ -78,13 +78,13 @@ test_that("Output should be a list", {
 test_that("Users must input a character vector for arguments in get_events", {
   expect_error(
     get_events(comic = 10),  
-    regexp = "Comic must be entered as string/characters. Ex. \"Age of Ultron (2013) #1\"")
+    regexp = "Comic must be entered as string/characters. Ex. \"Carnage #2\"")
   expect_error(
     get_events(character = 10),  
     regexp = "Character must be entered as string/characters. Ex. \"Black Widow\"")
   expect_error(
     get_events(series = 10),  
-    regexp = "Series must be entered as string/characters. Ex. \"All-New X-Men (2015 - 2017)\"")
+    regexp = "Series must be entered as string/characters. Ex. \"Eternals\"")
   expect_error(
     get_events(creator = 10),  
     regexp = "Creator must be entered as string/characters. Ex. \"Brian Michael Bendis\"")
@@ -105,7 +105,7 @@ test_that("Output should be a list", {
 test_that("Users must input a character vector for arguments in get_series", {
   expect_error(
     get_series(comic = 10),  
-    regexp = "Comic must be entered as string/characters. Ex. \"Age of Ultron (2013) #1\"")
+    regexp = "Comic must be entered as string/characters. Ex. \"Carnage #2\"")
   expect_error(
     get_series(character = 10),  
     regexp = "Character must be entered as string/characters. Ex. \"Black Widow\"")
