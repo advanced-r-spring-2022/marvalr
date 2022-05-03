@@ -21,7 +21,7 @@ install.packages("marvalr")
 
 ### `marvel_api_keys()`
 Allows user to easily set their public and private API keys for the Marvel API. Function allows the user to either set these keys for the current R session (in which case this function will need to be used every session in which the user wants to use this package) or add these keys to their R environment (the .Renviron file) in which case they would not need to use this function more than once or in future R sessions. Adding these keys to the .Renviron file allows the user to use other functions in this package without having their API keys exposed anywhere in their code. If the user does not have a .Renviron file, then this function creates a .Renviron file for them. If the user does have the file, this function will add these keys to the file and make a backup of the original file.\
-Note: Users are required to obtain both API keys from the [Marvel API Developer Website](https://developer.marvel.com/).
+Note: Users are required to obtain both API keys from the [Marvel API Developer Website](https://developer.marvel.com/) first.
 
 #### Inputs
 1. **public_api_key**: The public API key for the Marvel API, formatted in quotes ("").
