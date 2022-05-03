@@ -9,8 +9,7 @@ get_characters(
   offset = 0,
   comic = NULL,
   event = NULL,
-  series = NULL,
-  story = NULL
+  series = NULL
 )
 }
 \arguments{

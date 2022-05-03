@@ -31,8 +31,8 @@ get_events <- function(limit = 100, # default limit should be 100
                            comic = NULL, # default comicID should be NULL
                            creator = NULL, # default creatorID should be NULL
                            series = NULL, # default seriesID should be NULL
-                           character = NULL, # default characterID should be NULL 
-                           story = NULL) { # default storyID should be NULL
+                           character = NULL # default characterID should be NULL 
+                           ) { 
   
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get private key
@@ -44,7 +44,7 @@ get_events <- function(limit = 100, # default limit should be 100
          is.null(creator),
          is.null(series),
          is.null(character)) < 3) {
-    stop("Please choose to enter an argument for only one of comic, creator, series, character, or story.")
+    stop("Please choose to enter an argument for only one of comic, creator, series, or character.")
   }
   
   # entries for arguments should be characters/strings

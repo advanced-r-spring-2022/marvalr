@@ -21,8 +21,8 @@ get_characters <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comic = NULL, # default comicID should be NULL
                            event = NULL, # default eventID should be NULL
-                           series = NULL, # default seriesID should be NULL
-                           story = NULL) { # default storyID should be NULL
+                           series = NULL # default seriesID should be NULL
+                           ) {
   
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
@@ -48,10 +48,6 @@ get_characters <- function(limit = 100, # default limit should be 100
   
   if(!is.null(series) & !is.character(series)) {
     stop("Series must be entered as string/characters. Ex. \"Eternals\"")
-  }
-  
-  if(!is.null(story) & !is.character(story)) {
-    stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
   }
   
   # get ids from character/string entries
@@ -80,8 +76,6 @@ get_characters <- function(limit = 100, # default limit should be 100
     characters_base_url <- paste0(base_url, "events/", eventID, "/characters")
   } else if (is.null(seriesID) == FALSE) { # if user enters seriesID
     characters_base_url <- paste0(base_url, "series/", seriesID, "/characters")
-  } else if (is.null(storyID) == FALSE) { # if user enters storyID
-    characters_base_url <- paste0(base_url, "stories/", storyID, "/characters")
   } else { # if user doesnt enter any ids
     characters_base_url <- paste0(base_url, "characters")
   }

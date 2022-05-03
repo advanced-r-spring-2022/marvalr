@@ -10,8 +10,7 @@ get_series(
   comic = NULL,
   creator = NULL,
   events = NULL,
-  character = NULL,
-  story = NULL
+  character = NULL
 )
 }
 \arguments{

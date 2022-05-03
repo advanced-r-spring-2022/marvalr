@@ -10,8 +10,7 @@ get_events(
   comic = NULL,
   creator = NULL,
   series = NULL,
-  character = NULL,
-  story = NULL
+  character = NULL
 )
 }
 \arguments{

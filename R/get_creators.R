@@ -28,9 +28,8 @@ get_creators <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comic = NULL, # default comicID should be NULL
                            event = NULL, # default eventID should be NULL
-                           series = NULL # default seriesID should be NULL
-                           ) { 
-  
+                           series = NULL) { # default seriesID should be NULL
+
   
   
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
