@@ -37,13 +37,12 @@ get_comics <- function(limit = 100, # default limit should be 100
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
-  # so number of nulls should be 3 (if 1 entered) or 4 (if none entered)
+  # so number of nulls should be 2 (if 1 entered) or 3 (if none entered)
   
   if(sum(is.null(creator),
          is.null(event),
-         is.null(series),
-         is.null(story)) < 3) {
-    stop("Please choose to enter an argument for only one of comic, event, series, or story.")
+         is.null(series)) < 2) {
+    stop("Please choose to enter an argument for only one of comic, event, or series.")
   }
   
   # entries for arguments should be characters/strings
@@ -58,10 +57,6 @@ get_comics <- function(limit = 100, # default limit should be 100
   
   if(!is.null(series) & !is.character(series)) {
     stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
-  }
-  
-  if(!is.null(story) & !is.character(story)) {
-    stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
   }
   
   
@@ -90,12 +85,7 @@ get_comics <- function(limit = 100, # default limit should be 100
     seriesID = series_id$id[series_id$title == series]
     comics_base_url  <- paste0(base_url, "series/", seriesID, "/comics")
     
-  } else if (!is.null(story)) { # if user enters storyID
-    
-    storyID = stories_id$id[stories_id$tile == story]
-    comics_base_url <- paste0(base_url, "stories/", storyID, "/comics")
-    
-  } else { # if user doesnt enter any ids
+  } } else { # if user doesnt enter any ids
     
     comics_base_url <- paste0(base_url, "comics")
   }

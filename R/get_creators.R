@@ -28,8 +28,8 @@ get_creators <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comic = NULL, # default comicID should be NULL
                            event = NULL, # default eventID should be NULL
-                           series = NULL, # default seriesID should be NULL
-                           story = NULL) { # default storyID should be NULL
+                           series = NULL # default seriesID should be NULL
+                           ) { 
   
   
   
@@ -43,7 +43,7 @@ get_creators <- function(limit = 100, # default limit should be 100
          is.null(event),
          is.null(series),
          is.null(story)) <3) {
-    stop("Please choose to enter an argument for only one of comic, event, series, or story.")
+    stop("Please choose to enter an argument for only one of comic, event, or series.")
   }
   
   # entries for arguments should be characters/strings
@@ -59,10 +59,7 @@ get_creators <- function(limit = 100, # default limit should be 100
   if(!is.null(series) & !is.character(series)) {
     stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
   }
-  
-  if(!is.null(story) & !is.character(story)) {
-    stop("Comic must be entered as string/characters.") # still need example, not sure what a story?
-  }
+ 
     
   
   
@@ -89,11 +86,6 @@ get_creators <- function(limit = 100, # default limit should be 100
     
     seriesID = series_id$id[series_id$title == series]
     creators_base_url  <- paste0(base_url, "series/", seriesID, "/creators")
-    
-  } else if (!is.null(story)) { # if user enters storyID
-    
-    storyID = stories_id$id[stories_id$tile == story]
-    characters_base_url <- paste0(base_url, "stories/", storyID, "/creators")
     
   } else { # if user doesnt enter any ids
     
