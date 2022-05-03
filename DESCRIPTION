@@ -2,7 +2,7 @@ Package: marvalr
 Title: Marvel Comic's API Interface in R
 Version: 0.0.0.9000
 Authors@R: 
-    c(person("Bethany", "Leap", email = "first.last@example.com", role = c("aut", "cre")),
+    c(person("Bethany", "Leap", email = "bethanyjleap@gmail.com", role = c("aut", "cre")),
       person("Dashiell", "Nusbaum", email = "dashiellnusbaum@gmail.com", role = c("aut")),
       person("Ian", "Davis", email = "id1022a@alumni.american.edu", role = c("aut")),
       person("Daniel", "Bernal", email = "db4767a@student.american.edu", role = c("aut")))
