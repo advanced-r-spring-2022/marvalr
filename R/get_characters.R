@@ -1,6 +1,6 @@
 #' @title Fetches a dataframe of Marvel characters from the Marvel API.
 #' 
-#' @description Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series, or other arguments such as what the character's name starts with or how many results to offset by. 
+#' @description Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, or series, or other arguments such as what the character's name starts with or how many results to offset by. 
 #' 
 #' @param limit An integer. Limit the result set to the specified number of resources (max 100).
 #' @param offset An integer. Skip the specified number of resources in the result set.
@@ -8,7 +8,7 @@
 #' @param event A character vector. A big, universe-changing storyline
 #' @param series A character vector. Sequentially numbered list of comics with the same title and volume
 #' 
-#' @return A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
+#' @return A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, events, and urls.
 #' 
 #' @author Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
 #' 
@@ -32,7 +32,7 @@ get_characters <- function(limit = 100, # default limit should be 100
   marvel_public_api_key <- Sys.getenv("MARVEL_PUBLIC_API_KEY") # get public key
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
-  # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
+  # should only be enter one of c("comicID", "eventID", "seriesID")
   # so number of nulls should be 2 (if 1 entered) or 3 (if none entered)
 
   if(sum(is.null(comic),
