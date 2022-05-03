@@ -1,7 +1,4 @@
-test_that("Users must input a numeric vector for x in convert area", {
-  expect_error(conv_area(
-    x = c("liverpool", "reds"), 
-    from = "sq mi", 
-    to = "sq yd"),
-    regexp = "Error: x must be a numeric vector.")
+test_that("Users must input a character vector for arguments in get_creators", {
+  expect_error(
+    get_creators(comic = 10),  regexp = "Comic must be entered as string/characters. Ex. \"Carnage #2\"")
 })

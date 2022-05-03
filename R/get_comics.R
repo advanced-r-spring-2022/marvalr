@@ -16,20 +16,21 @@
 #' @export get_comics
 #' 
 #' @examples 
+#' 
 #' get_comics(limit = 50,
 #'                 offset = 0,
-#'                 series = "Eternals")
+#'                 series = "Eternals (1976 - 1978)")
 #'                 
 #'                 
-#'get_comics(event = "Civil War") 
+#' get_comics(event = "Civil War") 
 
 
 get_comics <- function(limit = 100, # default limit should be 100
                          offset = 0, # how many results to offset by
                          creator = NULL, # default comicID should be NULL
                          event = NULL, # default eventID should be NULL
-                         series = NULL, # default seriesID should be NULL
-                         story = NULL) { # default storyID should be NULL
+                         series = NULL # default seriesID should be NULL
+                         ) { 
   
   
   
@@ -71,21 +72,21 @@ get_comics <- function(limit = 100, # default limit should be 100
   
   base_url <- "https://gateway.marvel.com/v1/public/" # base url
   
-  if (!is.null(comic)) { # if user enters comicID
+  if (!is.null(creator)) { # if user enters creator, pull creatorID
     creatorID = creators_id$id[creators_id$fullName == creator]
     comics_base_url <- paste0(base_url, "creators/", creatorID, "/comics")
     
-  } else if (!is.null(event)) { # if user enters eventID
+  } else if (!is.null(event)) { # if user enters event, pull eventID
     
     eventID = events_id$id[events_id$title == event]
     comics_base_url <- paste0(base_url, "events/", eventID, "/comics")
     
-  } else if (!is.null(series)) { # if user enters seriesID
+  } else if (!is.null(series)) { # if user enters series, pull seriesID
     
     seriesID = series_id$id[series_id$title == series]
     comics_base_url  <- paste0(base_url, "series/", seriesID, "/comics")
     
-  } } else { # if user doesnt enter any ids
+  } else { # if user doesnt enter any ids
     
     comics_base_url <- paste0(base_url, "comics")
   }

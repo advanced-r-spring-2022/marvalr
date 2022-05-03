@@ -18,10 +18,10 @@
 #' @examples 
 #' get_creators(limit = 50,
 #'                 offset = 0,
-#'                 series = "Eternals")
+#'                 series = "Eternals (1976 - 1978)")
 #'                 
 #'                 
-#'get_creators(event = "Civil War") 
+#' get_creators(event = "Civil War") 
 
 
 get_creators <- function(limit = 100, # default limit should be 100
@@ -37,12 +37,11 @@ get_creators <- function(limit = 100, # default limit should be 100
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
-  # so number of nulls should be 3 (if 1 entered) or 4 (if none entered)
+  # so number of nulls should be 2 (if 1 entered) or 3 (if none entered)
   
   if(sum(is.null(comic),
          is.null(event),
-         is.null(series),
-         is.null(story)) <3) {
+         is.null(series)) <2) {
     stop("Please choose to enter an argument for only one of comic, event, or series.")
   }
   

@@ -2,10 +2,10 @@ Package: marvalr
 Title: Marvel Comic's API Interface in R
 Version: 0.0.0.9000
 Authors@R: 
-    c(person("Bethany", "Leap", "first.last@example.com", role = c("aut", "cre")),
-      person("Dashiell", "Nusbaum", "first.last@example.com", role = c("aut", "cre")),
-      person("Ian", "Davis", "first.last@example.com", role = c("aut", "cre")),
-      person("Daniel", "Bernal", "db4767a@student.american.edu", role = c("aut", "cre")))
+    c(person("Bethany", "Leap", email = "first.last@example.com", role = c("aut", "cre")),
+      person("Dashiell", "Nusbaum", email = "first.last@example.com", role = c("aut")),
+      person("Ian", "Davis", email = "first.last@example.com", role = c("aut")),
+      person("Daniel", "Bernal", email = "db4767a@student.american.edu", role = c("aut")))
 Description: The marvalr package comprises a collection of tools to interact and extract structured data from the Marvel API. It provides a variety of options to obtain data about comics, comic series, comic stories, comic events and crossovers, creators, and characters.
 License: GPL-3
 Encoding: UTF-8
