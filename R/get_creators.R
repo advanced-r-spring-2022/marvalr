@@ -18,7 +18,7 @@
 #' @examples 
 #' get_creators(limit = 50,
 #'                 offset = 0,
-#'                 creator = "Mary H.K. Choi")
+#'                 comic = "X-Men (1991) #23")
 #'                 
 #'                 
 #' get_creators(event = "Civil War") 

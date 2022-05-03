@@ -28,7 +28,7 @@ Get tibble containing information related to comics through the Marvel API based
 }
 \examples{
 
-get_comics(limit = 50, offset = 0, creator = "Mary H.K. Choi")
+get_comics(creator = "Mary H.K. Choi")
                 
                 
 get_comics(event = "Civil War") 
