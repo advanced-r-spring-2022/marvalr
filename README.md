@@ -11,7 +11,7 @@ The `marvalr` package comprises a collection of tools to interact and extract st
 
 
 ## Installation
-Users can install the the most recent version of `marvalr` with:
+Users can install the most recent version of `marvalr` with:
 
 ``` r
 install.packages("marvalr")
