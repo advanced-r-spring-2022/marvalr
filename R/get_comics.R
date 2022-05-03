@@ -51,11 +51,11 @@ get_comics <- function(limit = 100, # default limit should be 100
   }
   
   if(!is.null(event) & !is.character(event)) {
-    stop("Comic must be entered as string/characters. Ex. \"Civil War\"")
+    stop("Event must be entered as string/characters. Ex. \"Civil War\"")
   }
   
   if(!is.null(series) & !is.character(series)) {
-    stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
+    stop("Series must be entered as string/characters. Ex. \"Eternals\"")
   }
   
   

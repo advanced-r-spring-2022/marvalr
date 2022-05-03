@@ -26,8 +26,6 @@ get_series(
 \item{events}{A character vector. A big, universe-changing story line.}
 
 \item{character}{A character vector. Full name of the Marvel character.}
-
-\item{story}{A character vector. Indivisible components of comics.}
 }
 \description{
 Get tibble containing information related to series through the Marvel API based on user input criteria.
@@ -41,7 +39,7 @@ get_series(events = "Age of Ultron")
 
 get_series(character = "Vision")
 
-get_series(story = "169")
+
 
 }
 \author{

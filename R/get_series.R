@@ -8,7 +8,6 @@
 #' @param creator A character vector. A person or entity that makes comics.
 #' @param events A character vector. A big, universe-changing story line.
 #' @param character A character vector. Full name of the Marvel character.
-#' @param story A character vector. Indivisible components of comics.
 #' 
 #' 
 #' 
@@ -25,7 +24,7 @@
 #' 
 #' get_series(character = "Vision")
 #' 
-#' get_series(story = "169")
+#' 
 #' 
 
 
@@ -43,14 +42,13 @@ get_series <- function(limit = 100, # default limit should be 100
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get private key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
-  # so number of nulls should be 4 (if 1 entered) or 5 (if none entered)
+  # so number of nulls should be 3 (if 1 entered) or 4(if none entered)
   
   if(sum(is.null(comic),
          is.null(creator),
          is.null(events),
-         is.null(character),
-         is.null(story)) < 4) {
-    stop("Please choose to enter an argument for only one of comic, creator, events, character, or story.")
+         is.null(character)) < 3) {
+    stop("Please choose to enter an argument for only one of comic, creator, events, or character.")
   }
   
   # entries for arguments should be characters/strings
@@ -70,11 +68,6 @@ get_series <- function(limit = 100, # default limit should be 100
   if(!is.null(character) & !is.character(character)) {
     stop("Character must be entered as string/characters. Ex. \"Black Widow\"")
   }
-  
-  if(!is.null(story) & !is.character(story)) {
-    stop("StoryID must be entered as string/characters.")
-  }
-  
   
   # timestamp, hash, and url
   ts <- round(as.numeric(Sys.time())*1000) 
@@ -104,10 +97,6 @@ get_series <- function(limit = 100, # default limit should be 100
     
     characterID = character_ids$id[character_ids$name == character]
     series_base_url  <- paste0(base_url, "characters/", characterID, "/series")
-    
-  } else if (!is.null(story)) { # if user enters storyID
-    
-    series_base_url <- paste0(base_url, "stories/", story, "/series")
     
   } else { # if user doesn't enter any ids
     

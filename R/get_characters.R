@@ -5,10 +5,9 @@
 #' @param limit An integer. Limit the result set to the specified number of resources (max 100).
 #' @param offset An integer. Skip the specified number of resources in the result set.
 #' @param nameStartsWith A character. Return characters with names that begin with the specified string (e.g. Sp).
-#' @param comic An integer. The comic ID (e.g., 101094).
-#' @param event An integer. The event ID (e.g., 305).
-#' @param series An integer. The series ID (e.g., 25990).
-#' @param story An integer. The story ID (e.g., 223124).
+#' @param comic A character vector. A Marvel comic issue, collection, graphic novel, or digital comic
+#' @param event A character vector. A big, universe-changing storyline
+#' @param series A character vector. Sequentially numbered list of comics with the same title and volume
 #' 
 #' @return A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
 #' 
@@ -29,13 +28,12 @@ get_characters <- function(limit = 100, # default limit should be 100
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get priv key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
-  # so number of nulls should be 3 (if 1 entered) or 4 (if none entered)
+  # so number of nulls should be 2 (if 1 entered) or 3 (if none entered)
 
   if(sum(is.null(comic),
          is.null(event),
-         is.null(series),
-         is.null(story)) <3) {
-    stop("Please choose to enter an argument for only one of comic, event, series, or story.")
+         is.null(series)) <2) {
+    stop("Please choose to enter an argument for only one of comic, event, or series.")
   }
   
   # entries for arguments should be characters/strings
@@ -45,11 +43,11 @@ get_characters <- function(limit = 100, # default limit should be 100
   }
   
   if(!is.null(event) & !is.character(event)) {
-    stop("Comic must be entered as string/characters. Ex. \"Civil War\"")
+    stop("Event must be entered as string/characters. Ex. \"Civil War\"")
   }
   
   if(!is.null(series) & !is.character(series)) {
-    stop("Comic must be entered as string/characters. Ex. \"Eternals\"")
+    stop("Series must be entered as string/characters. Ex. \"Eternals\"")
   }
   
   if(!is.null(story) & !is.character(story)) {

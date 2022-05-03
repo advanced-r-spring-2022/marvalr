@@ -8,7 +8,6 @@
 #' @param creator A character vector. A person or entity that makes comics.
 #' @param series A character vector. Sequentially numbered list of comics with the same title and volume.
 #' @param character A character vector. Full name of the Marvel character.
-#' @param story A character vector. Indivisible components of comics.
 #' 
 #' 
 #' 
@@ -23,7 +22,7 @@
 #' 
 #' get_events(character = "Black Widow")
 #' 
-#' get_events(story = "103328")
+#' 
 
 
 
@@ -39,13 +38,12 @@ get_events <- function(limit = 100, # default limit should be 100
   marvel_private_api_key <- Sys.getenv("MARVEL_PRIVATE_API_KEY") # get private key
   
   # should only be enter one of c("comicID", "eventID", "seriesID", "storyID")
-  # so number of nulls should be 4 (if 1 entered) or 5 (if none entered)
+  # so number of nulls should be 2 (if 1 entered) or 3 (if none entered)
   
   if(sum(is.null(comic),
          is.null(creator),
          is.null(series),
-         is.null(character),
-         is.null(story)) < 4) {
+         is.null(character)) < 3) {
     stop("Please choose to enter an argument for only one of comic, creator, series, character, or story.")
   }
   
@@ -67,9 +65,6 @@ get_events <- function(limit = 100, # default limit should be 100
     stop("Character must be entered as string/characters. Ex. \"Black Widow\"")
   }
   
-  if(!is.null(story) & !is.character(story)) {
-    stop("StoryID must be entered as string/characters.")
-  }
   
   
   # timestamp, hash, and url

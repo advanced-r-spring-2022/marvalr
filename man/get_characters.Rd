@@ -18,13 +18,11 @@ get_characters(
 
 \item{offset}{An integer. Skip the specified number of resources in the result set.}
 
-\item{comic}{An integer. The comic ID (e.g., 101094).}
+\item{comic}{A character vector. A Marvel comic issue, collection, graphic novel, or digital comic}
 
-\item{event}{An integer. The event ID (e.g., 305).}
+\item{event}{A character vector. A big, universe-changing storyline}
 
-\item{series}{An integer. The series ID (e.g., 25990).}
-
-\item{story}{An integer. The story ID (e.g., 223124).}
+\item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
 
 \item{nameStartsWith}{A character. Return characters with names that begin with the specified string (e.g. Sp).}
 }

@@ -26,8 +26,6 @@ get_events(
 \item{series}{A character vector. Sequentially numbered list of comics with the same title and volume.}
 
 \item{character}{A character vector. Full name of the Marvel character.}
-
-\item{story}{A character vector. Indivisible components of comics.}
 }
 \description{
 Get tibble containing information related to events through the Marvel API based on user input criteria.
@@ -39,7 +37,7 @@ get_events(creator = "Brian Michael Bendis")
 
 get_events(character = "Black Widow")
 
-get_events(story = "103328")
+
 }
 \author{
 Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis
