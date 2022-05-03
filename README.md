@@ -10,13 +10,6 @@
 The `marvalr` package comprises a collection of tools to interact and extract structured data from the [Marvel API](https://developer.marvel.com/). It provides a variety of options to obtain data for comics, comic series, comic stories, comic events and crossovers, creators, and characters. This package is intended for users that have familiarity with APIs and are interested in exploring the endpoints that the [Marvel API](https://developer.marvel.com/) offers.
 
 
-## Installation
-Users can install the most recent version of `marvalr` with:
-
-``` r
-install.packages("marvalr")
-```
-
 ## Functions
 
 ### `marvel_api_keys()`
