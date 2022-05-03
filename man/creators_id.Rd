@@ -5,12 +5,21 @@
 \alias{creators_id}
 \title{Find unique ID of all creators in the Marvel Universe.}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 5693 rows and 2 columns.
+A \code{tibble} containing 1,561 observations of two columns:
+\describe{
+\item{id}{A numeric vector containing the unique identifier associated with
+each creator}
+\item{fullName}{A character vector containing the name of each Marvel creator}
+}
+}
+\source{
+Data provided by Marvel. Copyright 2014 Marvel.
 }
 \usage{
 creators_id
 }
 \description{
-Find unique ID of all creators in the Marvel Universe.
+Contains the unique id and name for every Marvel creator whose
+information can be accessed using the Marvel API.
 }
 \keyword{datasets}
