@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -169,76 +173,221 @@ pre code {
 
 <div id="marvalr" class="section level1">
 <h1>marvalr</h1>
+<div id="authors" class="section level3">
+<h3>Authors</h3>
+<ul>
+<li>Bethany Leap<br />
+</li>
+<li>Dashiell Nusbaum<br />
+</li>
+<li>Ian Davis<br />
+</li>
+<li>Daniel Bernal<br />
+</li>
+</ul>
+</div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The <code>marvalr</code> package comprises a collection of tools to interact and extract structured data from the <a href="https://developer.marvel.com/">Marvel API</a>. It provides a variety of options to obtain data for comics, comic series, comic stories, comic events and crossovers, creators, and characters.</p>
-</div>
-<div id="audience" class="section level2">
-<h2>Audience</h2>
-<p>This package is intended for users that have familiarity with APIs and are interested in exploring the endpoints that the <a href="https://developer.marvel.com/">Marvel API</a> offers.</p>
+<p>The <code>marvalr</code> package comprises a collection of tools to interact and extract structured data from the <a href="https://developer.marvel.com/">Marvel API</a>. It provides a variety of options to obtain data for comics, comic series, comic stories, comic events and crossovers, creators, and characters. This package is intended for users that have familiarity with APIs and are interested in exploring the endpoints that the <a href="https://developer.marvel.com/">Marvel API</a> offers.</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
-<p>Users can install the the most recent version of <code>marvalr</code> by:</p>
+<p>Users can install the the most recent version of <code>marvalr</code> with:</p>
 <pre class="r"><code>install.packages(&quot;marvalr&quot;)</code></pre>
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Function</strong></th>
-<th><strong>Inputs</strong></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>marvel_api_keys()</code></td>
-<td>marvel api key</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>marveeeeee</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>get_characters()</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>get_comics()</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>get_creators()</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>get_events()</code></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div id="marvel_api_keys" class="section level3">
+<h3><code>marvel_api_keys()</code></h3>
+<p>Allows user to easily set their public and private API keys for the Marvel API. Function allows the user to either set these keys for the current R session (in which case this function will need to be used every session in which the user wants to use this package) or add these keys to their R environment (the .Renviron file) in which case they would not need to use this function more than once or in future R sessions. Adding these keys to the .Renviron file allows the user to use other functions in this package without having their API keys exposed anywhere in their code. If the user does not have a .Renviron file, then this function creates a .Renviron file for them. If the user does have the file, this function will add these keys to the file and make a backup of the original file.<br />
+Note: Users are required to obtain both API keys from the <a href="https://developer.marvel.com/">Marvel API Developer Website</a>.</p>
+<div id="inputs" class="section level4">
+<h4>Inputs</h4>
+<ol style="list-style-type: decimal">
+<li><p>public_api_key: The public API key for the Marvel API, formatted in quotes (““).<br />
+</p></li>
+<li><p>private_api_key: The private API key for the Marvel API, formatted in quotes (““).<br />
+</p></li>
+<li><p>overwrite: If is set to TRUE, it will overwrite the existing MARVEL_PUBLIC_API_KEY and MARVEL_PRIVATE_API_KEY in your .Renviron file. If it is set to FALSE (default), it will not overwrite existing keys.<br />
+</p></li>
+<li><p>install: If it is set to TRUE, it will install the key in your .Renviron file to be used in future sessions. If it is set to FALSE (default), it will not be installed.<br />
+</p></li>
+</ol>
+<div id="example" class="section level5">
+<h5>Example</h5>
+<pre class="r"><code>marvel_api_keys(public_api_key = &quot;abcd1234&quot;,
+                 private_api_key = &quot;efgh5678&quot;,
+                 overwrite = TRUE,
+                 install = TRUE)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_character" class="section level3">
+<h3><code>get_character()</code></h3>
+<p>Fetches a data frame of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series.</p>
+<div id="inputs-1" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for comic, event, series, or story. If no input is entered, it will return the first 100 Marvel characters alphabetically.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
+</p></li>
+<li><p>event: A character vector. A big, universe-changing story line.<br />
+</p></li>
+<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
+</p></li>
+</ol>
+<div id="examples" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_characters(limit = 5)</code></pre>
+<pre class="r"><code>get_characters(event = &quot;Civil War&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_comics" class="section level3">
+<h3><code>get_comics()</code></h3>
+<p>Fetches a data frame of Marvel comics from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel comics. However, user can use different arguments in the function to find comics from different creators, events, or series.</p>
+<div id="inputs-2" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for creator, event, or series. If no input is entered, it will return the first 100 Marvel comics.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>creator: A character vector. A person or entity that make comics.<br />
+</p></li>
+<li><p>event: A character vector. A big, universe-changing story line.<br />
+</p></li>
+<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
+</p></li>
+</ol>
+<div id="examples-1" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_comics(creator = &quot;Mary H.K. Choi&quot;)</code></pre>
+<pre class="r"><code>get_comics(event = &quot;Civil War&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_creators" class="section level3">
+<h3><code>get_creators()</code></h3>
+<p>Fetches a data frame of Marvel creators from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel creators. However, user can use different arguments in the function to find creators from different comics, events, or series.</p>
+<div id="inputs-3" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for comic, event, or series. If no input is entered, it will return the first 100 Marvel creators.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
+</p></li>
+<li><p>event: A character vector. A big, universe-changing story line.<br />
+</p></li>
+<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
+</p></li>
+</ol>
+<div id="examples-2" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_creators(limit = 50,
+                 offset = 0,
+                 comic = &quot;X-Men (1991) #23&quot;)</code></pre>
+<pre class="r"><code>get_creators(event = &quot;Civil War&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_events" class="section level3">
+<h3><code>get_events()</code></h3>
+<p>Fetches a data frame of Marvel events from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel events. However, user can use different arguments in the function to find creators from different comics, creators, series, or character.</p>
+<div id="inputs-4" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for comic, creators, series, or character. If no input is entered, it will return the first 100 Marvel events.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
+</p></li>
+<li><p>creator: A character vector. A person or entity that makes comics.<br />
+</p></li>
+<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
+</p></li>
+<li><p>character: A character vector. Full name of the Marvel character.<br />
+</p></li>
+</ol>
+<div id="examples-3" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_events(limit = 10)</code></pre>
+<pre class="r"><code>get_events(creator = &quot;Brian Michael Bendis&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_series" class="section level3">
+<h3><code>get_series()</code></h3>
+<p>Fetches a data frame of Marvel series from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel series. However, user can use different arguments in the function to find series from different comics, creators, events, or character.</p>
+<div id="inputs-5" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for comic, creators, events, or character. If no input is entered, it will return the first 100 Marvel series.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
+</p></li>
+<li><p>creator: A character vector. A person or entity that makes comics.<br />
+</p></li>
+<li><p>events: A character vector. A big, universe-changing story line.<br />
+</p></li>
+<li><p>character: A character vector. Full name of the Marvel character.<br />
+</p></li>
+</ol>
+<div id="examples-4" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_series(events = &quot;Age of Ultron&quot;)</code></pre>
+<pre class="r"><code>get_series(character = &quot;Vision&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div id="get_stories" class="section level3">
+<h3><code>get_stories()</code></h3>
+<p>Fetches a data frame of Marvel stories from the Marvel API using different user-set parameters. By default, the function will return the existing Marvel stories. However, user can use different arguments in the function to find stories from different comics, creators, events, character, or series.</p>
+<div id="inputs-6" class="section level4">
+<h4>Inputs</h4>
+<p>Note: Users should only enter one input for comic, creators, events, character, or series. If no input is entered, it will return all the existing Marvel stories.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
+</p></li>
+<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
+</p></li>
+<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
+</p></li>
+<li><p>creator: A character vector. A person or entity that makes comics.<br />
+</p></li>
+<li><p>events: A character vector. A big, universe-changing story line.<br />
+</p></li>
+<li><p>character: A character vector. Full name of the Marvel character.<br />
+</p></li>
+<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
+</p></li>
+</ol>
+<div id="examples-5" class="section level5">
+<h5>Examples</h5>
+<pre class="r"><code>get_stories()</code></pre>
+<pre class="r"><code>get_stories(character = &quot;Invisible Woman&quot;)</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
