@@ -96,10 +96,6 @@ get_events <- function(limit = 100, # default limit should be 100
     characterID = character_ids$id[character_ids$name == character]
     events_base_url  <- paste0(base_url, "characters/", characterID, "/events")
     
-  } else if (!is.null(story)) { # if user enters storyID
-    
-    events_base_url <- paste0(base_url, "stories/", story, "/events")
-    
   } else { # if user doesn't enter any ids
     
     events_base_url <- paste0(base_url, "events")

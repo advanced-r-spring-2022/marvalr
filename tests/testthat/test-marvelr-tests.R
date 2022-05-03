@@ -66,7 +66,7 @@ test_that("Users must input a character vector for arguments in get_characters",
 
 test_that("Users can only choose one argument", {
   expect_error(
-    get_characters(series = "Civil War", creator = "Mary H.K. Choi"),  
+    get_characters(series = "Civil War", comic = "Carnage #2"),  
     regexp = "Please choose to enter an argument for only one of comic, event, or series.")
 })
 
@@ -87,6 +87,33 @@ test_that("Users must input a character vector for arguments in get_events", {
     regexp = "Series must be entered as string/characters. Ex. \"All-New X-Men (2015 - 2017)\"")
   expect_error(
     get_events(creator = 10),  
+    regexp = "Creator must be entered as string/characters. Ex. \"Brian Michael Bendis\"")
+})
+
+
+test_that("Users can only choose one argument", {
+  expect_error(
+    get_events(series = "Civil War", comic = "Carnage #2"),  
+    regexp = "Please choose to enter an argument for only one of comic, creator, series, or character.")
+})
+
+test_that("Output should be a list", {
+  expect_type(get_events(limit = 1), "list")
+})
+
+#get_series
+test_that("Users must input a character vector for arguments in get_series", {
+  expect_error(
+    get_series(comic = 10),  
+    regexp = "Comic must be entered as string/characters. Ex. \"Age of Ultron (2013) #1\"")
+  expect_error(
+    get_series(character = 10),  
+    regexp = "Character must be entered as string/characters. Ex. \"Black Widow\"")
+  expect_error(
+    get_series(event = 10),  
+    regexp = "Events must be entered as string/characters. Ex. \"Armor Wars\"")
+  expect_error(
+    get_series(creator = 10),  
     regexp = "Creator must be entered as string/characters. Ex. \"Brian Michael Bendis\"")
 })
 

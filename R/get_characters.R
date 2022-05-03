@@ -70,11 +70,14 @@ get_characters <- function(limit = 100, # default limit should be 100
   
   base_url <- "https://gateway.marvel.com/v1/public/" # base url
   
-  if (is.null(comicID) == FALSE) { # if user enters comicID
+  if (is.null(comic) == FALSE) { # if user enters comicID
+    comicID = comics_id$id[comics_id$title == comic]
     characters_base_url <- paste0(base_url, "comics/", comicID, "/characters")
-  } else if (is.null(eventID) == FALSE) { # if user enters eventID
+  } else if (is.null(event) == FALSE) { # if user enters eventID
+    eventID = events_id$id[events_id$title == event]
     characters_base_url <- paste0(base_url, "events/", eventID, "/characters")
-  } else if (is.null(seriesID) == FALSE) { # if user enters seriesID
+  } else if (is.null(series) == FALSE) { # if user enters seriesID
+    seriesID = series_id$id[series_id$title == series]
     characters_base_url <- paste0(base_url, "series/", seriesID, "/characters")
   } else { # if user doesnt enter any ids
     characters_base_url <- paste0(base_url, "characters")
