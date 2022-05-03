@@ -17,9 +17,7 @@
 #' 
 #' @examples 
 #' 
-#' get_comics(limit = 50,
-#'                 offset = 0,
-#'                 series = "Eternals (1976 - 1978)")
+#' get_comics(limit = 50, offset = 0, creator = "Mary H.K. Choi")
 #'                 
 #'                 
 #' get_comics(event = "Civil War") 

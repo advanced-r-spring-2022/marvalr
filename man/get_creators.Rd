@@ -9,8 +9,7 @@ get_creators(
   offset = 0,
   comic = NULL,
   event = NULL,
-  series = NULL,
-  story = NULL
+  series = NULL
 )
 }
 \arguments{
@@ -23,8 +22,6 @@ get_creators(
 \item{event}{A character vector. A big, universe-changing storyline}
 
 \item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
-
-\item{story}{A character vector. Indivisible components of comics}
 }
 \description{
 Get tibble containing information related to creators through the Marvel API based on user input criteria.
@@ -32,7 +29,7 @@ Get tibble containing information related to creators through the Marvel API bas
 \examples{
 get_creators(limit = 50,
                 offset = 0,
-                series = "Eternals")
+                creator = "Mary H.K. Choi")
                 
                 
 get_creators(event = "Civil War") 

@@ -9,8 +9,7 @@ get_comics(
   offset = 0,
   creator = NULL,
   event = NULL,
-  series = NULL,
-  story = NULL
+  series = NULL
 )
 }
 \arguments{
@@ -23,16 +22,13 @@ get_comics(
 \item{event}{A character vector. A big, universe-changing storyline}
 
 \item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
-
-\item{story}{A character vector. Indivisible components of comics}
 }
 \description{
 Get tibble containing information related to comics through the Marvel API based on user input criteria.
 }
 \examples{
-get_comics(limit = 50,
-                offset = 0,
-                series = "Eternals")
+
+get_comics(limit = 50, offset = 0, creator = "Mary H.K. Choi")
                 
                 
 get_comics(event = "Civil War") 

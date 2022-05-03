@@ -18,7 +18,7 @@
 #' @examples 
 #' get_creators(limit = 50,
 #'                 offset = 0,
-#'                 series = "Eternals (1976 - 1978)")
+#'                 creator = "Mary H.K. Choi")
 #'                 
 #'                 
 #' get_creators(event = "Civil War") 
