@@ -176,14 +176,10 @@ pre code {
 <div id="authors" class="section level3">
 <h3>Authors</h3>
 <ul>
-<li>Bethany Leap<br />
-</li>
-<li>Dashiell Nusbaum<br />
-</li>
-<li>Ian Davis<br />
-</li>
-<li>Daniel Bernal<br />
-</li>
+<li><strong>Bethany Leap</strong></li>
+<li><strong>Dashiell Nusbaum</strong></li>
+<li><strong>Ian Davis</strong></li>
+<li><strong>Daniel Bernal</strong></li>
 </ul>
 </div>
 <div id="introduction" class="section level2">
@@ -204,14 +200,10 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <div id="inputs" class="section level4">
 <h4>Inputs</h4>
 <ol style="list-style-type: decimal">
-<li><p>public_api_key: The public API key for the Marvel API, formatted in quotes (““).<br />
-</p></li>
-<li><p>private_api_key: The private API key for the Marvel API, formatted in quotes (““).<br />
-</p></li>
-<li><p>overwrite: If is set to TRUE, it will overwrite the existing MARVEL_PUBLIC_API_KEY and MARVEL_PRIVATE_API_KEY in your .Renviron file. If it is set to FALSE (default), it will not overwrite existing keys.<br />
-</p></li>
-<li><p>install: If it is set to TRUE, it will install the key in your .Renviron file to be used in future sessions. If it is set to FALSE (default), it will not be installed.<br />
-</p></li>
+<li><p><strong>public_api_key</strong>: The public API key for the Marvel API, formatted in quotes (““).</p></li>
+<li><p><strong>private_api_key</strong>: The private API key for the Marvel API, formatted in quotes (““).</p></li>
+<li><p><strong>overwrite</strong>: If is set to TRUE, it will overwrite the existing MARVEL_PUBLIC_API_KEY and MARVEL_PRIVATE_API_KEY in your .Renviron file. If it is set to FALSE (default), it will not overwrite existing keys.</p></li>
+<li><p><strong>install</strong>: If it is set to TRUE, it will install the key in your .Renviron file to be used in future sessions. If it is set to FALSE (default), it will not be installed.</p></li>
 </ol>
 <div id="example" class="section level5">
 <h5>Example</h5>
@@ -227,19 +219,13 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series.</p>
 <div id="inputs-1" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for comic, event, series, or story. If no input is entered, it will return the first 100 Marvel characters alphabetically.<br />
-</p>
+<p>Note: Users should only enter one input for comic, event, series, or story. If no input is entered, it will return the first 100 Marvel characters alphabetically.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
-</p></li>
-<li><p>event: A character vector. A big, universe-changing story line.<br />
-</p></li>
-<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>comic</strong>: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.</p></li>
+<li><p><strong>event</strong>: A character vector. A big, universe-changing story line.</p></li>
+<li><p><strong>series</strong>: A character vector. Sequentially numbered list of comics with the same title and volume.</p></li>
 </ol>
 <div id="examples" class="section level5">
 <h5>Examples</h5>
@@ -253,19 +239,13 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel comics from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel comics. However, user can use different arguments in the function to find comics from different creators, events, or series.</p>
 <div id="inputs-2" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for creator, event, or series. If no input is entered, it will return the first 100 Marvel comics.<br />
-</p>
+<p>Note: Users should only enter one input for creator, event, or series. If no input is entered, it will return the first 100 Marvel comics.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>creator: A character vector. A person or entity that make comics.<br />
-</p></li>
-<li><p>event: A character vector. A big, universe-changing story line.<br />
-</p></li>
-<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>creator</strong>: A character vector. A person or entity that make comics.</p></li>
+<li><p><strong>event</strong>: A character vector. A big, universe-changing story line.</p></li>
+<li><p><strong>series</strong>: A character vector. Sequentially numbered list of comics with the same title and volume.</p></li>
 </ol>
 <div id="examples-1" class="section level5">
 <h5>Examples</h5>
@@ -279,19 +259,13 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel creators from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel creators. However, user can use different arguments in the function to find creators from different comics, events, or series.</p>
 <div id="inputs-3" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for comic, event, or series. If no input is entered, it will return the first 100 Marvel creators.<br />
-</p>
+<p>Note: Users should only enter one input for comic, event, or series. If no input is entered, it will return the first 100 Marvel creators.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
-</p></li>
-<li><p>event: A character vector. A big, universe-changing story line.<br />
-</p></li>
-<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>comic</strong>: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.</p></li>
+<li><p><strong>event</strong>: A character vector. A big, universe-changing story line.</p></li>
+<li><p><strong>series</strong>: A character vector. Sequentially numbered list of comics with the same title and volume.</p></li>
 </ol>
 <div id="examples-2" class="section level5">
 <h5>Examples</h5>
@@ -307,21 +281,14 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel events from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel events. However, user can use different arguments in the function to find creators from different comics, creators, series, or character.</p>
 <div id="inputs-4" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for comic, creators, series, or character. If no input is entered, it will return the first 100 Marvel events.<br />
-</p>
+<p>Note: Users should only enter one input for comic, creators, series, or character. If no input is entered, it will return the first 100 Marvel events.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
-</p></li>
-<li><p>creator: A character vector. A person or entity that makes comics.<br />
-</p></li>
-<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
-</p></li>
-<li><p>character: A character vector. Full name of the Marvel character.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>comic</strong>: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.</p></li>
+<li><p><strong>creator</strong>: A character vector. A person or entity that makes comics.</p></li>
+<li><p><strong>series</strong>: A character vector. Sequentially numbered list of comics with the same title and volume.</p></li>
+<li><p><strong>character</strong>: A character vector. Full name of the Marvel character.</p></li>
 </ol>
 <div id="examples-3" class="section level5">
 <h5>Examples</h5>
@@ -335,21 +302,14 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel series from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel series. However, user can use different arguments in the function to find series from different comics, creators, events, or character.</p>
 <div id="inputs-5" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for comic, creators, events, or character. If no input is entered, it will return the first 100 Marvel series.<br />
-</p>
+<p>Note: Users should only enter one input for comic, creators, events, or character. If no input is entered, it will return the first 100 Marvel series.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
-</p></li>
-<li><p>creator: A character vector. A person or entity that makes comics.<br />
-</p></li>
-<li><p>events: A character vector. A big, universe-changing story line.<br />
-</p></li>
-<li><p>character: A character vector. Full name of the Marvel character.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>comic</strong>: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.</p></li>
+<li><p><strong>creator</strong>: A character vector. A person or entity that makes comics.</p></li>
+<li><p><strong>events</strong>: A character vector. A big, universe-changing story line.</p></li>
+<li><p><strong>character</strong>: A character vector. Full name of the Marvel character.</p></li>
 </ol>
 <div id="examples-4" class="section level5">
 <h5>Examples</h5>
@@ -363,23 +323,15 @@ Note: Users are required to obtain both API keys from the <a href="https://devel
 <p>Fetches a data frame of Marvel stories from the Marvel API using different user-set parameters. By default, the function will return the existing Marvel stories. However, user can use different arguments in the function to find stories from different comics, creators, events, character, or series.</p>
 <div id="inputs-6" class="section level4">
 <h4>Inputs</h4>
-<p>Note: Users should only enter one input for comic, creators, events, character, or series. If no input is entered, it will return all the existing Marvel stories.<br />
-</p>
+<p>Note: Users should only enter one input for comic, creators, events, character, or series. If no input is entered, it will return all the existing Marvel stories.</p>
 <ol style="list-style-type: decimal">
-<li><p>limit: An integer. Limit the result set to the specified number of resources (max 100).<br />
-</p></li>
-<li><p>offset: An integer. Skip the specified number of resources in the result set.<br />
-</p></li>
-<li><p>comic: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.<br />
-</p></li>
-<li><p>creator: A character vector. A person or entity that makes comics.<br />
-</p></li>
-<li><p>events: A character vector. A big, universe-changing story line.<br />
-</p></li>
-<li><p>character: A character vector. Full name of the Marvel character.<br />
-</p></li>
-<li><p>series: A character vector. Sequentially numbered list of comics with the same title and volume.<br />
-</p></li>
+<li><p><strong>limit</strong>: An integer. Limit the result set to the specified number of resources (max 100).</p></li>
+<li><p><strong>offset</strong>: An integer. Skip the specified number of resources in the result set.</p></li>
+<li><p><strong>comic</strong>: A character vector. A Marvel comic issue, collection, graphic novel, or digital comic.</p></li>
+<li><p><strong>creator</strong>: A character vector. A person or entity that makes comics.</p></li>
+<li><p><strong>events</strong>: A character vector. A big, universe-changing story line.</p></li>
+<li><p><strong>character</strong>: A character vector. Full name of the Marvel character.</p></li>
+<li><p><strong>series</strong>: A character vector. Sequentially numbered list of comics with the same title and volume.</p></li>
 </ol>
 <div id="examples-5" class="section level5">
 <h5>Examples</h5>
