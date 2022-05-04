@@ -117,7 +117,9 @@ get_stories <- function(limit = 100, # default limit should be 100
     stories_url
 
   GET_stories <- httr::GET(stories_url) # GET the url
-  stopifnot(httr::status_code(GET_stories) == 200) # stop if error code
+  if (httr::status_code(GET_stories) != 200) {
+    stop(paste0("\n", httr::http_status(GET_stories)$message))
+  }
 
   # turn into a tidy data frame
   content_stories <- httr::content(GET_stories) # retrieve contents of request

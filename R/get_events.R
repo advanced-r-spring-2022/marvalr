@@ -23,9 +23,6 @@
 #' get_events(character = "Black Widow")
 #'
 #'
-
-
-
 get_events <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comic = NULL, # default comicID should be NULL
@@ -106,7 +103,9 @@ get_events <- function(limit = 100, # default limit should be 100
     events_url
 
   GET_events <- httr::GET(events_url) # GET the url
-  stopifnot(httr::status_code(GET_events) == 200) # stop if error code
+  if (httr::status_code(GET_events) != 200) {
+    stop(paste0("\n", httr::http_status(GET_events)$message))
+  }
 
   # turn into a tidy data frame
   content_events <- httr::content(GET_events) # retrieve contents of request

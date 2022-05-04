@@ -94,7 +94,9 @@ get_characters <- function(limit = 100, # default limit should be 100
     characters_url
 
   GET_characters <- httr::GET(characters_url) # GET the url
-  stopifnot(httr::status_code(GET_characters) == 200) # stop if error code
+  if (httr::status_code(GET_characters) != 200) {
+    stop(paste0("\n", httr::http_status(GET_characters)$message))
+  }
   # turn into a tidy dataframe
   content_characters <- httr::content(GET_characters) # retrieve contents of req
   tibble_characters <- tibble::tibble(content_characters) # turn into tibble

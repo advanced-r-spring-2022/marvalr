@@ -93,7 +93,9 @@ get_comics <- function(limit = 100, # default limit should be 100
     comics_url
 
   GET_comics <- httr::GET(comics_url) # GET the url
-  stopifnot(httr::status_code(GET_comics) == 200) # stop if error code
+  if (httr::status_code(GET_comics) != 200) {
+    stop(paste0("\n", httr::http_status(GET_comics)$message))
+  }
   # turn into a tidy dataframe
   content_comics <- httr::content(GET_comics) # retrieve contents of req
   tibble_comics <- tibble::tibble(content_comics) # turn into tibble

@@ -108,7 +108,9 @@ get_series <- function(limit = 100, # default limit should be 100
     series_url
 
   GET_series <- httr::GET(series_url) # GET the url
-  stopifnot(httr::status_code(GET_series) == 200) # stop if error code
+  if (httr::status_code(GET_series) != 200) {
+    stop(paste0("\n", httr::http_status(GET_series)$message))
+  }
 
   # turn into a tidy data frame
   content_series <- httr::content(GET_series) # retrieve contents of request

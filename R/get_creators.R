@@ -22,8 +22,6 @@
 #'
 #'
 #' get_creators(event = "Civil War")
-
-
 get_creators <- function(limit = 100, # default limit should be 100
                            offset = 0, # how many results to offset by
                            comic = NULL, # default comicID should be NULL
@@ -94,7 +92,9 @@ get_creators <- function(limit = 100, # default limit should be 100
     creators_url
 
   GET_creators <- httr::GET(creators_url) # GET the url
-  stopifnot(httr::status_code(GET_creators) == 200) # stop if error code
+  if (httr::status_code(GET_creators) != 200) {
+    stop(paste0("\n", httr::http_status(GET_creators)$message))
+  }
   # turn into a tidy dataframe
   content_creators <- httr::content(GET_creators) # retrieve contents of req
   tibble_creators <- tibble::tibble(content_creators) # turn into tibble
