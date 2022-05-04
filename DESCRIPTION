@@ -5,7 +5,12 @@ Authors@R:
     c(person("Bethany", "Leap", email = "bethanyjleap@gmail.com", role = c("aut", "cre")),
       person("Dashiell", "Nusbaum", email = "dashiellnusbaum@gmail.com", role = c("aut")),
       person("Ian", "Davis", email = "id1022a@alumni.american.edu", role = c("aut")),
-      person("Daniel", "Bernal", email = "db4767a@student.american.edu", role = c("aut")))
+      person("Daniel", "Bernal", email = "db4767a@student.american.edu", role = c("aut")),
+      person(given = "David", 
+             family = "Gerard", 
+             role = c("ctb"), 
+             email = "gerard.1787@gmail.com",
+             comment = c(ORCID = "0000-0001-9450-5023")))
 Description: The marvalr package comprises a collection of tools to interact and extract structured data from the Marvel API. It provides a variety of options to obtain data about comics, comic series, comic stories, comic events and crossovers, creators, and characters.
 License: MIT + file LICENSE
 Encoding: UTF-8
