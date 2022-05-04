@@ -31,7 +31,7 @@ Get tibble containing information related to events through the Marvel API based
 }
 \examples{
 get_events()
-                
+
 get_events(creator = "Brian Michael Bendis")
 
 get_events(character = "Black Widow")

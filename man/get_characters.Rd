@@ -24,10 +24,10 @@ get_characters(
 \item{series}{A character vector. Sequentially numbered list of comics with the same title and volume}
 }
 \value{
-A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, stories, events, and urls.
+A dataframe of up to 100 characters containing their ID, name, description, time last modified, resource URI, and nested lists of thumbnails, comics, series, events, and urls.
 }
 \description{
-Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, stories, or series, or other arguments such as what the character's name starts with or how many results to offset by.
+Fetches a dataframe of Marvel characters from the Marvel API using different user-set parameters. By default, the function will return the first 100 Marvel characters alphabetically. However, user can use different arguments in the function to find characters from different comics, events, or series, or other arguments such as what the character's name starts with or how many results to offset by.
 }
 \examples{
 

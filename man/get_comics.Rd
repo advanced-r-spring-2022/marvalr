@@ -29,9 +29,9 @@ Get tibble containing information related to comics through the Marvel API based
 \examples{
 
 get_comics(creator = "Mary H.K. Choi")
-                
-                
-get_comics(event = "Civil War") 
+
+
+get_comics(event = "Civil War")
 }
 \author{
 Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis

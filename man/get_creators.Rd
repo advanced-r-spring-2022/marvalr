@@ -30,9 +30,9 @@ Get tibble containing information related to creators through the Marvel API bas
 get_creators(limit = 50,
                 offset = 0,
                 comic = "X-Men (1991) #23")
-                
-                
-get_creators(event = "Civil War") 
+
+
+get_creators(event = "Civil War")
 }
 \author{
 Bethany Leap, Daniel Bernal Panqueva, Dashiell Nusbaum, Ian M Davis

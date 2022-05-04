@@ -30,7 +30,7 @@ Used the {tidycensus} package, particularly the census_api_key() function, as a 
 
 \examples{
 
- \dontrun{ 
+ \dontrun{
 marvel_api_keys(public_api_key = "abcd1234",
                 private_api_key = "efgh5678",
                 overwrite = TRUE,
